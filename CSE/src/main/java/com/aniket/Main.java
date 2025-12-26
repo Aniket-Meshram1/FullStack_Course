@@ -13,7 +13,7 @@ public class Main {
 	
 	
 	Robot r2 = new Robot();
-	
+	System.out.println(r2);
 	r2.brand ="Dell";
 	r2.os= "Linux";
 	r2.microprocessor= "Intel";

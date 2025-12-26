@@ -10,9 +10,7 @@ public class CheckString {
 	System.out.println(s1.equals(s2));// true
 	String s3 = new String("Arsh");
 	System.out.println(s1==s3);  // False because it creates object in non constant pool
-	Sysd
-	
-	em.out.println(s1.equals(s3)); //true
+	System.out.println(s1.equals(s3)); //true
 	String s4 = new String("Arsh");
 		s1.concat(s4);
 	System.out.println(s1);
