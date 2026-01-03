@@ -12,13 +12,13 @@ public class Rule1 {
 	}
 
 }
-class Parent{
+class ParentA{
 	int a = 10 ;
 	int b = 20;
 	void disp() {
 		System.out.println(a +"\n"+b);
 	}
 }
-class Child extends Parent{
+class Child extends ParentA{
 	
 }

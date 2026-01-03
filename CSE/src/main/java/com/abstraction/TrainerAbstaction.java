@@ -1,21 +1,8 @@
-package com.polymorphism;
+package com.abstraction;
 
-public class ReducedTrainer {
+public class TrainerAbstaction {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-//		Trainer t;
-//		t= new JavaTrainer();
-//		t.teach();
-//		t = new AptiTrainer();
-//		t.teach();
-//		t = new TestTrainer();
-//		t.teach();
-//		
-		
-		
-//		Here we are reducing the code to achieve complete Polymorphism
-		
 		duty(new JavaTrainer1());
 		duty(new AptiTrainer1());
 		duty(new TestTrainer1());
@@ -25,11 +12,8 @@ public class ReducedTrainer {
 		}
 
 }
-class Trainer1{
-	void teach() {
-		System.out.println("Trainer called");
-	}
-	
+abstract class Trainer1{
+abstract void teach() ;
 }
 class JavaTrainer1 extends Trainer1{
 	void teach() {

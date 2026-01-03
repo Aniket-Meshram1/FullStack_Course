@@ -4,7 +4,7 @@ public class Rule4 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-			Child2 c  = new Child2();
+//			Child2 c  = new Child2();
 	}
 
 }
@@ -24,9 +24,11 @@ class Parent3{
 
 // Syntax Error 
 // Multiple inheritance is not allowed in java due to ambiguity and diamond shape problem 
-class Child2 extends Parent2 , Parent3{
-	public Child2() {
-		System.out.println("Child Constructor Called");
-	}
-	
-}
+
+
+//class Child2 extends Parent2 , Parent3{
+//	public Child2() {
+//		System.out.println("Child Constructor Called");
+//	}
+//	
+//}
