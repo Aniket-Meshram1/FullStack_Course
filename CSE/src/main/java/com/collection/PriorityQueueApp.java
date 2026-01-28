@@ -12,7 +12,7 @@ public class PriorityQueueApp {
 		pq.add(23);
 		pq.add(75);
 		pq.add(125);
-		pq.add(1705);
+		pq.add(17.05);
 		System.out.println(pq);
 		
 	}
