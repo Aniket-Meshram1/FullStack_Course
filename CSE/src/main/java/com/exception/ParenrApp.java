@@ -32,7 +32,7 @@ class Child extends Parent{
 	void disp() throws SQLException{
 		
 	}
-	// here d in parent class have runtime exception and d in child class have arithmeric exception which child of runtime so it is allowed
+	// here d in parent class have runtime exception and d in child class have arithmetic exception which child of runtime so it is allowed
 	void d() throws ArithmeticException{
 		
 	}

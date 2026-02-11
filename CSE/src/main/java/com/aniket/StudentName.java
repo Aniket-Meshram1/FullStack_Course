@@ -20,7 +20,7 @@ public class StudentName {
 			System.out.println("Names of Student "+(n+1)+": "+names[n]);
 		
 		}
-		// TODO Auto-generated method stub
+		
 
 	}
 

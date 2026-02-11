@@ -1,5 +1,6 @@
 package com.collection;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class LinkedListApp {
@@ -11,7 +12,17 @@ public class LinkedListApp {
 		list.add(30);
 		list.add("Aniket");
 		list.add('A');
-		list.add(true);
+		list.add(null);
+		list.add(2, "Meshram");
+		
+		
+		System.out.println("Descending order "); 
+		Iterator itr1 = list.descendingIterator();
+		while (itr1.hasNext()) {
+			System.out.print(itr1.next()+" ");
+			
+		}
+		System.out.println();
 		
 		System.out.println(list);
 		

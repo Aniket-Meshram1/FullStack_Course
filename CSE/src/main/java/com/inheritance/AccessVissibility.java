@@ -34,7 +34,7 @@ class Visibiity2 extends Visibility{
 
 
 
-// we can keep the return type different of overridden method of child from parent but both the retrun type should be in the is-a relationship
+// we can keep the return type different of overridden method of child from parent but both the return type should be in the is-a relationship
 class Parent{
 	Animal disp() {
 		Animal a = new Animal();

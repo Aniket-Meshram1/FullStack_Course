@@ -1,7 +1,4 @@
 package com.polymorphism;
-
-
-
 public class SecurityPolymorphismApp {
 
 	public static void main(String[] args) {
@@ -11,7 +8,6 @@ public class SecurityPolymorphismApp {
 		System.out.println("-----------------------\n");
 		duty(new AirForce());
 	
-
 	}
 	static void duty(SecurityForces s) {
 		s.job();

@@ -8,7 +8,7 @@ public class BoolianCheck {
 		if(is_married) {
 			System.out.println("Student is married");
 		}else {
-			System.out.println("Student is not maaried");
+			System.out.println("Student is not married");
 		}
 
 	}

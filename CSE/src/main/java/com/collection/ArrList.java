@@ -21,7 +21,7 @@ public class ArrList {
 		list2.add(30);
 		list2.add("Aniket");
 		list2.add('A');
-		list2.add(true);
+		list2.add(null);
 		System.out.println(list2);
 		list1.add(0, 'B');
 		list1.addAll(3, list2);

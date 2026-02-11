@@ -1,9 +1,8 @@
 package com.polymorphism;
-
 public class TrainerApp {
 
 	public static void main(String[] args) {
-	// we make use of parent reference to achieve the d
+	// we make use of parent reference to achieve the polymorphism
 		Trainer t;
 		t= new JavaTrainer();
 		t.teach();
@@ -21,7 +20,7 @@ class Trainer{
 	
 }
 class JavaTrainer extends Trainer{
-	void teach() {
+	 void teach() {
 		System.out.println("Java Trainer called");
 	}
 }

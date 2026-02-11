@@ -7,9 +7,9 @@ public class KodCalciApp {
 	public static void main(String[] args) {
 //		KodCalci obj = new ASoftware();
 //		duty(obj);
-//		KodCalci obj2 = new BSoftware();
+//		KodCalci obj2 = new BSoftware(2,10);
 //		duty(obj2);
-	
+//	
 	
 		
 
@@ -88,7 +88,7 @@ private float c;
 	public void add() {
 		
 		 c = a+b;
-		System.out.printf("Addition of %.2f and %.2f : %.2f",a,b,c);
+		System.out.printf("Addition of %.2f and %.2f : %.2f\n",a,b,c);
 		
 	}
 
@@ -96,14 +96,14 @@ private float c;
 	public void sub() {
 		
 		 c = a-b;
-		System.out.printf("Substraction of %.2f and %.2f : %.2f",a,b,c);
+		System.out.printf("Substraction of %.2f and %.2f : %.2f\n",a,b,c);
 			
 	}
 
 	@Override
 	public void mul() {
 		 c = a*b;
-		System.out.printf("Multiplication of %.2f and %.2f : %.2f",a,b,c);
+		System.out.printf("Multiplication of %.2f and %.2f : %.2f\n",a,b,c);
 			
 		
 	}
@@ -111,7 +111,7 @@ private float c;
 	@Override
 	public void div() {
 		 c = a/b;
-		System.out.printf("Division of %.2f and %.2f : %.2f",a,b,c);
+		System.out.printf("Division of %.2f and %.2f : %.2f\n",a,b,c);
 			
 		
 	}

@@ -1,0 +1,46 @@
+ reverse order sort 
+ ArrayList al = new ArrayList();
+ al.add(100);
+ al.add(50);
+ al.add(150);
+ al.add(75);
+ al.add(125);
+ al.add(150);
+ 
+ comparator c = Collections.reverseOrder();
+ Collection.sort(al,c);
+ System.out.println(al);
+ 
+ other inbuild methods present in collections class
+ collections.binarySearch(al,element);
+ collections.rotate(al,timesRotate);
+ collections.min(al);
+ collections.max(al);
+ collections.frequency(al,element);
+ collections.replaceAll(al,75,99);
+ collections.shuffle();
+ 
+ 
+ HashMap
+ 
+ Hashing in complex object is very complicated and time consuming job hence to efficiently store , search and sort
+  the complex objeccts we should make use the classes present in map hierarachy. A map (key,value) refers to the key value pair  where 
+  key will be simple and unique and object value will be complex.
+  
+in the above example output can not be predict if we want the output in the same order of insertion then instead of hashMap we have to make use LinkefHashMap
+if we want the object to store and display in ascending order of the keys then we have to go for treemap as shown below.
+
+
+Map Views
+
+Methods Which would help to read the contents of map are technically called as map views.
+1. keySet()
+2. values()
+3. entrySet()
+
+
+JDBC
+JDBC is a technology which makes the communication between a java application and dbms possible.
+
+
+ 

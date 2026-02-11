@@ -3,8 +3,7 @@ package com.aniket;
 public class Student {
 	public static void main(String [] args) {
 		StudentDetails sd = new StudentDetails();
-		sd.eat();
-		 
+		sd.eat(); 
 	}
 
 }

@@ -1,62 +1,97 @@
 package com.service;
-import com.repository.*;
+
 import com.exception.AuthenticationException;
 import com.exception.InsufficientBalanceException;
 import com.exception.InvalidAmountException;
-import com.model.*;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.model.Account;
+import com.model.Transaction;
+import com.model.User;
+import com.repository.AccountRepository;
+import com.repository.TransactionRepository;
+import com.repository.UserRepository;
 
 public class BankService {
-	private static int acc_No = 100001;
-	UserRepository userRepo = new UserRepository();
-	public User registerUser(String name, String password) {
-		
-		User user = new User(acc_No, name, password, 0.0);
-		userRepo.saveUser(user);
-		acc_No++;
-		return user;
-		
-	}
-	public User login(int acc_No,String password)  throws AuthenticationException{
-		User user = userRepo.findUser(acc_No);
+
+	private UserRepository userRepo = new UserRepository();
+	private AccountRepository accountRepo = new AccountRepository();
+	private TransactionRepository transactionRepo = new TransactionRepository();
+
+	// ================= LOGIN =================
+	public User login(String username, String password) throws AuthenticationException {
+
+		User user = userRepo.findByUsername(username);
+
 		if (user == null || !user.getPassword().equals(password)) {
-            throw new AuthenticationException("Invalid account number or password");
-        }
-		System.out.println("Login Successfully!!\n"+"Welcome "+user.getName());
-        return user;
+			throw new AuthenticationException("Invalid username or password");
 		}
-	
-	public void deposit(User user,double amount) throws InvalidAmountException {
+		return user;
+	}
+
+	// ================= REGISTER =================
+	public Account register(User user, Account account) {
+
+		int userId = userRepo.save(user);
+
+		Account newAccount = new Account(account.getAccountNumber(), userId, account.getAccountType(),
+				account.getEmail(), account.getPhone());
+
+		accountRepo.save(newAccount);
+		return newAccount;
+	}
+
+	// ================= DEPOSIT =================
+	public void deposit(User user, String accountNumber, double amount) throws InvalidAmountException {
+
 		if (amount <= 0) {
-            throw new InvalidAmountException("Deposit amount must be greater than zero");
-        }
-        user.deposit(amount);
-	}
-	
-	public boolean withdraw(User user,double amount)  throws InvalidAmountException, InsufficientBalanceException {
-
-        if (amount <= 0) {
-            throw new InvalidAmountException("Withdrawal amount must be greater than zero");
-        }
-
-        if (user.getBalance() < amount) {
-            throw new InsufficientBalanceException("Insufficient balance");
-        }
-    
-		return user.withdraw(amount);
-	}
-	
-	public double checkBalance(User user) {
-		return user.getBalance();
-		
-	}
-	public boolean changePass(User user ,String oldPass , String newPass) {
-		if(user.getPassword().equals(oldPass)) {
-			user.setPassword(newPass);
-			return true;
+			throw new InvalidAmountException("Amount must be greater than zero");
 		}
-		return false;
+
+		double newBalance = user.getBalance() + amount;
+
+		userRepo.updateBalance(user.getUserId(), newBalance);
+		transactionRepo.save(new Transaction(accountNumber, "DEPOSIT", amount));
+
+		user.setBalance(newBalance);
 	}
+
+	// ================= WITHDRAW =================
+	public void withdraw(User user, String accountNumber, double amount)
+			throws InvalidAmountException, InsufficientBalanceException {
+
+		if (amount <= 0) {
+			throw new InvalidAmountException("Amount must be greater than zero");
+		}
+
+		if (user.getBalance() < amount) {
+			throw new InsufficientBalanceException("Insufficient balance");
+		}
+
+		double newBalance = user.getBalance() - amount;
+
+		userRepo.updateBalance(user.getUserId(), newBalance);
+		transactionRepo.save(new Transaction(accountNumber, "WITHDRAW", amount));
+
+		user.setBalance(newBalance);
+	}
+
+	public Account getAccountForUser(int userId) {
+		return accountRepo.findByUserId(userId);
+	}
+//====================UPDATE PASSWORD============================
+
+	public void changePassword(User user, String oldPassword, String newPassword)
+			throws AuthenticationException, InvalidAmountException {
+
+		if (!user.getPassword().equals(oldPassword)) {
+			throw new AuthenticationException("Old password is incorrect");
+		}
+
+		if (newPassword == null || newPassword.length() < 4) {
+			throw new InvalidAmountException("Password must be at least 4 characters");
+		}
+
+		userRepo.updatePassword(user.getUserId(), newPassword);
+		user.setPassword(newPassword);
+	}
+
 }

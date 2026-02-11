@@ -13,6 +13,8 @@ public class OverriddingApp {
 	}
 
 }
+
+
 class P1{
 	void disp() {
 		System.out.println("Parent");

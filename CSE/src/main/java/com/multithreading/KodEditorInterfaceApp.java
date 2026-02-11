@@ -4,14 +4,14 @@ public class KodEditorInterfaceApp {
 
 	public static void main(String[] args) throws InterruptedException {
 		System.out.println("Application Started.....");
-		Thread t1 = new Thread(new Typing());
-		Thread t2 = new Thread(new SpellCheck());
-		Thread t3 = new Thread(new Saving());
+		Thread t1 = new Thread(new Typing1());
+		Thread t2 = new Thread(new SpellCheck1());
+		Thread t3 = new Thread(new Saving1());
 		t1.start();
 		t2.start();
 		t3.start();
 		
-		
+	
 		t1.join();
 		t2.join();
 		t3.join();
@@ -24,6 +24,7 @@ public class KodEditorInterfaceApp {
 class Typing1 implements Runnable{
 	public void run() {
 		System.out.println("Typing Started.....");
+		
 		for(int i = 0 ;i< 10 ;i++) {
 			System.out.println(i+" Typing....");
 			try {

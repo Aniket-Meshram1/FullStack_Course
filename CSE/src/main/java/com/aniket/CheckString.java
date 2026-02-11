@@ -15,7 +15,7 @@ public class CheckString {
 		s1.concat(s4);
 	System.out.println(s1);
 	
-//	
+
 //	String str1 = new String("Abc");
 //	String str2 = str1.intern();
 //	String str3 = str1.intern();
@@ -29,6 +29,8 @@ public class CheckString {
 	String st2 = "SAURAV";
 	System.out.println(st1.compareTo(st2));  // if value is 0 then both string are same if -ve then String 2 is greater and for +ve value String 1 is greater
 	System.out.println(st1.toLowerCase());
+	
+	
 	
 	
 	}

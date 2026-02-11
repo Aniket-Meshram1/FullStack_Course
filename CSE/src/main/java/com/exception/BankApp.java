@@ -19,6 +19,7 @@ class Bank{
 			atm.transaction();
 		} catch (Exception e) {
 			System.out.println("info recieved by the bank your money will be refunded in 24 hours");
+			
 		}
 		System.out.println("Bank connection closed");
 	}

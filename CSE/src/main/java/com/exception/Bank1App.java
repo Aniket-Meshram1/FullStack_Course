@@ -20,20 +20,20 @@ class Bank1 {
 			a.acceptInfo();
 			a.validate();
 		} catch (InvalidInputException e) {
-			System.out.println("Wrong credentials!!");
+			System.out.println(e.getMessage());
 			System.out.println("Attemp 2");
 			try {
 				a.acceptInfo();
 				a.validate();
 			} catch (InvalidInputException e1) {
-				System.out.println("Wrong credentials!!");
+				System.out.println(e.getMessage());
 				System.out.println("Final Attempt");
 
 				try {
 					a.acceptInfo();
 					a.validate();
 				} catch (InvalidInputException e2) {
-					System.out.println("Wrong credentials!!");
+					System.out.println(e.getMessage());
 					System.out.println("Your ATM is Blocked for 24 Hours ");
 				}
 			}
@@ -63,7 +63,7 @@ class ATM1 {
 			System.out.println("Login Successfull");
 		} else {
 			InvalidInputException e = new InvalidInputException();
-			System.out.println(e.getMessage());
+//			System.out.println(e.getMessage());
 			throw e;
 		}
 	}
